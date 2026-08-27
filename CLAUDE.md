@@ -120,14 +120,32 @@ Rename this on the fresh start rather than inheriting the confusion.
 
 ## Open blockers
 
-1. **Payments — this is the project-defining risk.**
+1. **Payments — this is the project-defining risk, but no longer an open question, an
+   execution plan.** Full research: `docs/belize-payments-logistics-research.md`.
    **Stripe does not operate in Belize.** Stripe supports 46 countries and, in all of Latin
    America, only Brazil and Mexico. Most WooCommerce documentation assumes Stripe and will not
-   apply. Unresolved options to investigate:
-   - Atlantic Bank and Belize Bank merchant services / online gateway
-   - First Atlantic Commerce (serves much of the Caribbean)
-   - **Cash on delivery** — a legitimate MVP answer for an island market, costs nothing to start
+   apply. Real paths that exist today, in launch order:
+   - **Cash on delivery** — ship day one. Matches how San Pedro already transacts (Facebook
+     Marketplace, Runman's motorcycle runners) and is the same lever Jumia used across Africa.
+   - **PayPal Business** — fastest real online-money path. Belize entities can open one today;
+     WooCommerce has an official PayPal gateway plugin; it accepts foreign cards from buyers
+     who don't even have a PayPal account, which covers the tourist/expat segment that already
+     prepays for vacation-rental groceries. Start this alongside COD.
+   - **Atlantic Bank or Belize Bank merchant gateway** (BZD settlement, via First Atlantic
+     Commerce/PowerTranz plumbing) — the real long-term local card-acceptance path, but slow
+     bank underwriting. Start the application now, in parallel, not launch-blocking.
+   - **E-kyash** (Belize Bank's wallet, no bank account needed, 1,500+ merchants, documented
+     third-party merchant integration) — best answer for unbanked locals; add once volume
+     justifies the dev time.
+   - **DigiWallet** (Digicell/Belize Telemedia's telco wallet, ~190k users) — real e-commerce
+     merchant support exists, but **the "DigiWallet for WooCommerce" plugin you'll find by
+     searching is a Dutch payment processor of the same name (digiwallet.nl) — unrelated.**
+     Same naming-trap shape as WP Engine/EasyWP. Real Belize DigiWallet integration needs
+     direct outreach to Digicell, not that plugin.
+   - Central Bank of Belize is building a national Instant Payment System (World Bank-backed,
+     contracted to Montran) — not usable yet, a watch-item.
    Must be settled *before* recruiting vendors. A marketplace that can't take money is a catalogue.
+   COD + PayPal are both achievable before Phase 3's "one real vendor" milestone.
 
 2. **Pharmacy regulation in Belize** — confirm what may be listed and delivered online before
    putting a pharmacy live. Needs a real answer, not a guess.
@@ -137,6 +155,20 @@ Rename this on the fresh start rather than inheriting the confusion.
 
 4. **EasyWP capacity** — managed plans are sized for ordinary sites. A marketplace with many
    vendors and large image catalogues is heavier. Watch load times once real catalogues land.
+
+5. **Delivery workforce for Phase 4 — not a cold start.** Full research:
+   `docs/belize-payments-logistics-research.md`. San Pedro's last-mile problem is short-distance
+   (golf-cart-scale island town), not the continental-logistics problem that made this hard
+   elsewhere. Single-vendor delivery operators already serve this exact demand today (San Pedro
+   Provisioning Company, Coconut Carts Belize, Mata Grande, Lagniappe, Public Supermarket) —
+   each running its own siloed ordering + ad hoc golf-cart delivery, mostly for tourists
+   prepping vacation rentals. That fragmentation is Ultraw's opening (same relationship
+   Instacart/Rappi has to individual grocery chains) and their delivery people are the
+   recruiting pool for Phase 4, rather than building a driver fleet from zero. **Runman**
+   (Belize's own on-demand delivery app, live in Belize City/Belmopan/Ladyville/8 Miles, not yet
+   on Ambergris Caye) is proof the payment-in-app model works here — but it's motorcycle-based
+   for mainland streets; `ultraw-dispatch` should be designed around golf carts, not
+   motorcycles, and Runman reaching San Pedro first is a competitive watch-item.
 
 ---
 
